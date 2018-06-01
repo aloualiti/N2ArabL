@@ -25,7 +25,17 @@ def nTol(num):
     numdict[80] = 'ثمانون'
     numdict[90] = 'تسعون'
  
+    numdict[100] = 'مائة'
+    numdict[200] = 'مائتان'
+    numdict[300] = 'ثلاثمائة'
+    numdict[400] = 'أربعمائة'
+    numdict[500] = 'خمسمائة'
+    numdict[600] = 'ستمائة'
+    numdict[700] = 'سبعمائة'
+    numdict[800] = 'ثمانمائة'
+    numdict[900] = 'تسعمائة'
 
+    
     result=numdict.get(num)
     if result==None:
         numstr=str(num)
@@ -34,11 +44,14 @@ def nTol(num):
             if int(numstr[0])==1:
                 return numdict[int(numstr[1])] + " " + numdict[int(numstr[0])*10]
             return numdict[int(numstr[1])] + " و " + numdict[int(numstr[0])*10]
+        elif lenstr==3:
+            return numdict[int(numstr[0]) * 100] + " و " + nTol(int(numstr[1:]))
+
                   
     return result
 x=0
-while x<100:
+while x<1000:
     x= input (" : المرجو منكم ادخال رقم\n")
     print nTol(x)
     
-print "9اعتذر لم أتعلم بعد كتابة الأرقام الاكبر من 9"    
+print "اعتذر لم أتعلم بعد كتابة الأرقام الاكبر من 999"    
